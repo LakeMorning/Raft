@@ -3,9 +3,9 @@
 <h2>Introduction</h2>
 <p>
   In this assignment you will implement the
-  <a href=papers/chandy_lamport.pdf>Chandy-Lamport algorithm</a> for distributed snapshots.
+  <a href="https://lamport.azurewebsites.net/pubs/chandy.pdf">Chandy-Lamport algorithm</a> for distributed snapshots.
   Your snapshot algorithm will be implemented on top of a token passing system, similar
-  to the ones presented in <a href="docs/P4-distributed-snapshots.zip">Precept 4</a> and in
+  to the ones presented in precept and in
   the Chandy-Lamport paper.
 
   The algorithm makes the following assumptions:
@@ -38,7 +38,7 @@
 <p>
   Of these files, you only need to turn in <tt>server.go</tt> and <tt>simulator.go</tt>. However, some other
   files also contain information that will be useful for your implementation or debugging, such as the <tt>debug</tt>
-  flag in <tt>common.go</tt> and the thread-safe map in <tt>syncmap.go</tt>. Your task is to implement the functions
+  flag in <tt>common.go</tt> and the thread-safe map in <tt>syncmap.go</tt>. However, you do not have to use the provided SyncMap if you would prefer to implement its functionality yourself. Your task is to implement the functions
   that say <tt>TODO: IMPLEMENT ME</tt>, adding fields to the surrounding classes if necessary.
 </p>
 
@@ -72,6 +72,19 @@
   ok      chandy-lamport  0.006s
 </pre>
 
+## Point Distribution
+
+<table>
+<tr><th>Test</th><th>Points</th></tr>
+<tr><td>2NodesSimple</td><td>13</td></tr>
+<tr><td>2NodesSingleMessage</td><td>13</td></tr>
+<tr><td>3NodesMultipleMessages</td><td>14</td></tr>
+<tr><td>3NodesMultipleBidirectionalMessages</td><td>14</td></tr>
+<tr><td>8NodesSequentialSnapshots</td><td>15</td></tr>
+<tr><td>8NodesConcurrentSnapshots</td><td>15</td></tr>
+<tr><td>10Nodes</td><td>16</td></tr>
+</table>
+
 ## Submitting Assignment
 
 You hand in your assignment as before.
@@ -79,9 +92,14 @@ You hand in your assignment as before.
 ```bash
 $ git commit -am "[you fill me in]"
 $ git tag -a -m "i finished assignment 2" a2-handin
-$ git push origin master
-$ git push origin a2-handin
-$
+$ git push origin master a2-handin
+```
+
+<p>Recall, in order to overwrite a tag use the force flag as follows.</p>
+
+```bash
+$ git tag -fam "i finished assignment 2" a2-handin
+$ git push -f --tags
 ```
 
 You should verify that you are able to see your final commit and tags

@@ -163,7 +163,7 @@
   how sophisticated your implementation is.
   From the <tt>src/kvraft</tt> directory:
   <pre>
-$ go test -v -run Basic
+$ go test -v -run TestBasic
 === RUN   TestBasic
 Test: One client ...
   ... Passed
@@ -310,6 +310,24 @@ ok  kvraft 214.069s</pre>
 </p>
 
 
+## Point Distribution
+
+<table>
+<tr><th>Test</th><th>Points</th></tr>
+<tr><td>TestBasic$</td><td>8</td></tr>
+<tr><td>TestConcurrent$</td><td>8</td></tr>
+<tr><td>TestUnreliable$</td><td>8</td></tr>
+<tr><td>TestUnreliableOneKey$</td><td>8</td></tr>
+<tr><td>TestOnePartition$</td><td>8</td></tr>
+<tr><td>TestManyPartitionsOneClient$</td><td>8</td></tr>
+<tr><td>TestManyPartitionsManyClients$</td><td>8</td></tr>
+<tr><td>TestPersistOneClient$</td><td>8</td></tr>
+<tr><td>TestPersistConcurrent$</td><td>9</td></tr>
+<tr><td>TestPersistConcurrentUnreliable$</td><td>9</td></tr>
+<tr><td>TestPersistPartition$</td><td>9</td></tr>
+<tr><td>TestPersistPartitionUnreliable$</td><td>9</td></tr>
+</table>
+
 ## Submitting Assignment
 
 You hand in your assignment as before.
@@ -317,19 +335,19 @@ You hand in your assignment as before.
 ```bash
 $ git commit -am "[you fill me in]"
 $ git tag -a -m "i finished assignment 5" a5-handin
-$ git push origin master
-$ git push origin a5-handin
-$
+$ git push origin master a5-handin
 ```
+
+<p>Recall, in order to overwrite a tag use the force flag as follows.</p>
+
+```bash
+$ git tag -fam "i finished assignment 5" a5-handin
+$ git push -f --tags
+```
+
 <p>
   You will receive full credit for Part I if your software passes the tests mentioned for that section on the CS servers.
   You will receive full credit for Part II if your software passes the tests mentioned for that section on the CS servers.
-</p>
-
-<p>
-  The final portion of your credit is determined by code quality tests, using the standard tools <tt>gofmt</tt> and <tt>go vet</tt>. 
-  You will receive full credit for this portion if all files submitted conform to the style standards set by <tt>gofmt</tt> and the report from <tt>go vet</tt> is clean for your raftkv package (that is, produces no errors). 
-  If your code does not pass the <tt>gofmt</tt> test, you should reformat your code using the tool. You can also use the <a href="https://github.com/qiniu/checkstyle">Go Checkstyle</a> tool for advice to improve your code's style, if applicable.  Additionally, though not part of the graded cheks, it would also be advisable to produce code that complies with <a href="https://github.com/golang/lint">Golint</a> where possible. 
 </p>
 
 
